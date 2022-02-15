@@ -10,17 +10,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.aprendec.model.Persona;
 import com.aprendec.service.PersonaService;
+import com.aprendec.service.MusicoService; 
 
 @Controller
 public class PersonaController {
 
 	@Autowired(required=true)
 	private PersonaService personaService;
+	
+	@Autowired(required=true)
+	private MusicoService musicoService;
 
 	@RequestMapping("/")
 	public String index(Model model) {
 		model.addAttribute("list", personaService.getAll());
 		return "index";
+	}
+	
+	@RequestMapping("/index2")
+	public String index2(Model model) {
+		model.addAttribute("list", musicoService.getAll());
+		return "index2";
 	}
 
 	@GetMapping("/save/{id}")

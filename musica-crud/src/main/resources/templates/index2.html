@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>CRUD Springboot</title>
+
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<div class="container">
+		<br>
+		<h2 th:if="${list.isEmpty()}">No hay musicos</h2>
+		<div th:if="${!list.isEmpty()}">
+			<h2>Mantenimiento de musicos</h2>
+			<br>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Estilo</th>
+						<th>Formación</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="persona : ${list}">
+						<td th:text="${musico.nombre}">
+						<td th:text="${musico.estilo}">
+						<td th:text="${musico.formacion}">
+						<td><a class="btn btn-info" th:href="@{/save/{id}(id=${musico.id})}">Editar</a></td>
+						<td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${musico.id})}">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br>
+		<div>
+			<a href="/save/0" class="btn btn-primary">Agregar</a>
+		</div>
+	</div>
+</body>
+</html>
