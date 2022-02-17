@@ -24,19 +24,19 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="persona : ${list}">
+					<tr th:each="musico : ${list}">
 						<td th:text="${musico.nombre}">
 						<td th:text="${musico.estilo}">
 						<td th:text="${musico.formacion}">
 						<td><a class="btn btn-info" th:href="@{/save/{id}(id=${musico.id})}">Editar</a></td>
-						<td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${musico.id})}">Eliminar</a></td>
+						<td><a class="btn btn-danger" th:href="@{/delete2/{id}(id=${musico.id})}">Eliminar</a></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		<br>
 		<div>
-			<a href="/save/0" class="btn btn-primary">Agregar</a>
+			<a href="/save2/0" class="btn btn-primary">Agregar</a>
 		</div>
 	</div>
 </body>
